@@ -14,7 +14,9 @@
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "yarn start --silent & cypress open",
+    "cy:run": "BROWSER=none yarn start & cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +34,9 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "react-test-renderer": "^16.13.0"
   }
 }

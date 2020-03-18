@@ -1,6 +1,6 @@
 describe("user views menus", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001");
+    cy.visit("/");
   });
 
   it("displays first header header", () => {

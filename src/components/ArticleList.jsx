@@ -5,9 +5,9 @@ class ArticleList extends Component {
   render() { 
     return ( 
       <>
-      <div id="article-headline">
+      <div className="article-headline">
         <h2>Article Headline</h2>
-        <div>
+        <div className="article-teaser">
           <p>Article teaser...</p>
         </div>
       </div>

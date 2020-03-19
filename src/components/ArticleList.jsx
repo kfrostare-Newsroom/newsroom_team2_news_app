@@ -2,23 +2,19 @@ import React, { Component } from "react";
 import { Box, Grommet } from "grommet";
 import { grommet } from "grommet/themes";
 import axios from "axios";
+import { connect } from "react-redux";
 
 class ArticleList extends Component {
-  state = {
-    articleList: []
-  };
 
   componentDidMount() {
     axios.get("/articles").then(response => {
-      this.setState({
-        articleList: response.data.articles
-      });
+      this.props.dispatch({ type: 'ARTICLES', payload: { articleList: response.data.articles } })
     });
   }
   render() {
     let articleDisplay;
-    if (this.state.articleList !== []) {
-      articleDisplay = this.state.articleList.map(article => {
+    if (this.props.articleList !== []) {
+      articleDisplay = this.props.articleList.map(article => {
         return (
           <>
             <Grommet full theme={grommet}>
@@ -41,12 +37,14 @@ class ArticleList extends Component {
         );
       });
     }
-    return (
-      <>
-        {articleDisplay}
-      </>
-    );
+    return <>{articleDisplay}</>;
   }
 }
 
-export default ArticleList;
+const mapStateToProps = state => {
+  return {
+    articleList: state.articleList
+  };
+};
+
+export default connect(mapStateToProps)(ArticleList);

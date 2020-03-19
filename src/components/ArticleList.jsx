@@ -20,6 +20,45 @@ class ArticleList extends Component {
           </div>
           </div>
         </Box>
+        <Box
+          direction="row"
+          border={{ color: 'brand', size: 'large' }}
+          pad="medium"
+          margin="medium">
+          <div className="article-headline">
+            <h2>Article Headline</h2>
+        
+          <div className="article-teaser">
+            <p>Article teaser...</p>
+          </div>
+          </div>
+        </Box>
+        <Box
+          direction="row"
+          border={{ color: 'brand', size: 'large' }}
+          pad="medium"
+          margin="medium">
+          <div className="article-headline">
+            <h2>Article Headline</h2>
+        
+          <div className="article-teaser">
+            <p>Article teaser...</p>
+          </div>
+          </div>
+        </Box>
+        <Box
+          direction="row"
+          border={{ color: 'brand', size: 'large' }}
+          pad="medium"
+          margin="medium">
+          <div className="article-headline">
+            <h2>Article Headline</h2>
+        
+          <div className="article-teaser">
+            <p>Article teaser...</p>
+          </div>
+          </div>
+        </Box>
       </Grommet>
 
       </>

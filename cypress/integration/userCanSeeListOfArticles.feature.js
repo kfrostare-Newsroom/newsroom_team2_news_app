@@ -1,4 +1,4 @@
-describe("user views menus", () => {
+describe("user can view articles", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -9,7 +9,7 @@ describe("user views menus", () => {
     cy.visit("/");
   });
 
-  it("views list of articles", () => {
+  it("shows list of articles", () => {
     cy.get(".article-headline").should("contain", "Coronavirus")
     cy.get(".article-teaser").should("contain", "The World's governments cannot manage it")
   });

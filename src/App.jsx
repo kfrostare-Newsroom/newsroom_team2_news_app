@@ -1,13 +1,17 @@
 import React from "react";
 import ArticleList from "./components/ArticleList";
+import { Grommet, Main, Heading } from 'grommet';
+import { grommet } from "grommet/themes";
 
 const App = () => {
   return (
     <>
-      <div>
-        <h1>VAMOS TEAM 2</h1>
-      </div>
-      <ArticleList />
+    <Grommet full theme={grommet}>
+      <Main fill align="center" justify="center">
+        <Heading>VAMOS TEAM 2</Heading>
+        <ArticleList />
+      </Main>
+    </Grommet>
     </>
   );
 };

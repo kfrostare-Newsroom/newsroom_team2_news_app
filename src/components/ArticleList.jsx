@@ -10,7 +10,8 @@ class ArticleList extends Component {
        <Box
           direction="row"
           border={{ color: 'brand', size: 'large' }}
-          pad="medium">
+          pad="medium"
+          margin="medium">
           <div className="article-headline">
             <h2>Article Headline</h2>
         

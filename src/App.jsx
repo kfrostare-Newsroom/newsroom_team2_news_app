@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import ArticleList from "./components/ArticleList";
 
 const App = () => {
   return (
     <>
-      <h1>VAMOS TEAM 2</h1>
+      <div>
+        <h1>VAMOS TEAM 2</h1>
+      </div>
+      <ArticleList />
     </>
   );
 };

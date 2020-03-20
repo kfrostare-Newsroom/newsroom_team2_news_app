@@ -18,7 +18,7 @@ describe("user can view specific articles", () => {
 
   it("user can navigate to article", () => {
     cy.get(".article-headline").within(() => {
-      cy.get("button").contains("Read more").click
+      cy.get("button").contains("Read More").click()
     });
   })
 });

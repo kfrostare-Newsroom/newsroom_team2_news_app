@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Grommet } from "grommet";
+import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -30,6 +30,7 @@ class ArticleList extends Component {
               <div className="article-teaser">
                 <p>{article.teaser}</p>
               </div>
+              <Button type="submit" primary label="Read More"></Button>
             </div>
           </Box>
           

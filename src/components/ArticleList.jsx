@@ -23,14 +23,19 @@ class ArticleList extends Component {
             border={{ color: "brand", size: "large" }}
             pad="medium"
             margin="medium"
+            className="article"
           >
-            <div className="article-headline">
-              <h2>{article.title}</h2>
+            <div className="article-box">
+              <div className="feature-article">
+                <div className="article-headline">
+                  <h2>{article.title}</h2>
 
-              <div className="article-teaser">
-                <p>{article.teaser}</p>
+                  <div className="article-teaser">
+                    <p>{article.teaser}</p>
+                  </div>
+                  <Button type="submit" primary label="Read More"></Button>
+                </div>
               </div>
-              <Button type="submit" primary label="Read More"></Button>
             </div>
           </Box>
           

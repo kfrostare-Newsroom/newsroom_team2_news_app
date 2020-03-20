@@ -5,10 +5,12 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 class ArticleList extends Component {
-
   componentDidMount() {
     axios.get("/articles").then(response => {
-      this.props.dispatch({ type: 'ARTICLES', payload: { articleList: response.data.articles } })
+      this.props.dispatch({
+        type: "ARTICLES",
+        payload: { articleList: response.data.articles }
+      });
     });
   }
   render() {

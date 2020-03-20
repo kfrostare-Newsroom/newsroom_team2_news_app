@@ -1,4 +1,4 @@
-import initialState from "../store/initialState"
+import initialState from "../store/initialState";
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -6,10 +6,9 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         articleList: action.payload.articleList
-      }
-      default:
-        return state
+      };
+    default:
+      return state;
   }
-  
-}
+};
 export default rootReducer;

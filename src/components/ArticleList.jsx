@@ -13,7 +13,11 @@ class ArticleList extends Component {
       });
     });
   }
+
+  // onClick={this.props.dispatch({ type: "CLEAR_ARTICLES", payload: {articleList: [] }})}
+
   render() {
+
     let articleDisplay;
     if (this.props.articleList !== []) {
       articleDisplay = this.props.articleList.map(article => {
@@ -33,7 +37,7 @@ class ArticleList extends Component {
                   <div className="article-teaser">
                     <p>{article.teaser}</p>
                   </div>
-                  <Button type="submit" primary label="Read More"></Button>
+                  <Button type="submit" primary label="Read More" onClick={() => this.props.dispatch({ type: "CLEAR_ARTICLES", payload: {articleList: [] }})}></Button>
                 </div>
               </div>
             </div>

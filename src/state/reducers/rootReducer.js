@@ -7,6 +7,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         articleList: action.payload.articleList
       };
+    case "CLEAR_ARTICLES":
+      return {
+        ...state,
+        articleList: []
+      }
     default:
       return state;
   }

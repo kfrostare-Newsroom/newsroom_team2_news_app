@@ -18,28 +18,29 @@ class ArticleList extends Component {
     if (this.props.articleList !== []) {
       articleDisplay = this.props.articleList.map(article => {
         return (
-          <>
-            <Grommet full theme={grommet}>
-              <Box
-                direction="row"
-                border={{ color: "brand", size: "large" }}
-                pad="medium"
-                margin="medium"
-              >
-                <div className="article-headline">
-                  <h2>{article.headline}</h2>
+          <Box
+            direction="row"
+            border={{ color: "brand", size: "large" }}
+            pad="medium"
+            margin="medium"
+          >
+            <div className="article-headline">
+              <h2>{article.title}</h2>
 
-                  <div className="article-teaser">
-                    <p>{article.teaser}</p>
-                  </div>
-                </div>
-              </Box>
-            </Grommet>
-          </>
+              <div className="article-teaser">
+                <p>{article.teaser}</p>
+              </div>
+            </div>
+          </Box>
+          
         );
       });
     }
-    return <>{articleDisplay}</>;
+    return (
+    <Grommet full theme={grommet}>
+      {articleDisplay}
+    </Grommet>
+    )
   }
 }
 

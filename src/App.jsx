@@ -7,14 +7,12 @@ import { grommet } from "grommet/themes";
 class App extends Component {
   render() {
     return (
-      <>
         <Grommet full theme={grommet}>
           <Main fill align="center" justify="center">
             <Heading>VAMOS TEAM 2</Heading>
             <ArticleList />
           </Main>
         </Grommet>
-      </>
     );
   }
 }

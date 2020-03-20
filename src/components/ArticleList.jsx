@@ -25,7 +25,7 @@ class ArticleList extends Component {
             margin="medium"
             className="article"
           >
-            <div className="article-box">
+            <div id ={article.id} className="article-box">
               <div className="feature-article">
                 <div className="article-headline">
                   <h2>{article.title}</h2>

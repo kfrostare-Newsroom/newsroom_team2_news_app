@@ -10,8 +10,7 @@ describe("user can view specific articles", () => {
   });
 
   it("user can navigate to article", () => {
-    cy.get(".article-box").within(() => {
-      cy.get(".feature-article").should("contain", "Toilet test")
+    cy.get(".article-box").last().within(() => {
       cy.get("button").contains("Read More").click()
     });
 

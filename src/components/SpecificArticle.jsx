@@ -11,16 +11,31 @@ class SpecificArticle extends Component {
     }
     return (
       <Grommet full theme={grommet}>
-        <Box>
-          <h2>{specArticle.title}</h2>
-          <p>{specArticle.content}</p>
+        <Box 
+        direction="row"
+        border={{ color: "brand", size: "small" }}
+        pad="medium"
+        margin="medium"
+        className="article">
+          <div>
+            <div className="spec-title">
+              <h2>{specArticle.title}</h2>
+            </div>
+            <div className="spec-content">
+              <p>{specArticle.content}</p>
+            </div>
+            <div className="created-date">
+              <p>Submitted on {specArticle.created_at}</p>
+            </div>
+          </div>
         </Box>
-        <Button 
-          type="submit"
-          primary
-          label="Back"
-          onClick={() => this.props.dispatch({type: "HIDE_ARTICLE"})}>
-        </Button>
+        <Box align="center">
+          <Button 
+            type="submit"
+            label="Back"
+            onClick={() => this.props.dispatch({type: "HIDE_ARTICLE"})}>
+          </Button>
+        </Box>
       </Grommet>
     );
   }

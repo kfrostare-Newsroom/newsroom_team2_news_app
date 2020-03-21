@@ -18,8 +18,8 @@ class ArticleList extends Component {
     let id = event.target.dataset.id
     let response = await axios.get(`/articles/${id}`)
     this.props.dispatch({
-      type: "CLEAR_ARTICLES",
-      payload: { articleList: [], readArticle: response.data}
+      type: "SHOW_ARTICLE",
+      payload: { readArticle: response.data }
     })
   }
 

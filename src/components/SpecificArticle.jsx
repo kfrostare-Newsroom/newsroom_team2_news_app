@@ -2,31 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class SpecificArticle extends Component {
-
-
-  render() { 
+  render() {
     let specArticle;
-    if (this.props.readArticle !== []) {
-      specArticle = this.props.readArticle
+    if (this.props.readArticle !== undefined) {
+      specArticle = this.props.readArticle;
     }
-    return ( 
-      <div>
+    return (
+      <>
         <h2>{specArticle.title}</h2>
         <p>{specArticle.content}</p>
-      </div>
-      
-    )
+        <button onClick={() => this.props.dispatch({type: "HIDE_ARTICLE"})}>Back</button>
+      </>
+    );
   }
 }
 
 const mapStateToProps = state => {
-    return {
-      readArticle: state.readArticle
-    };
+  return {
+    readArticle: state.readArticle
   };
+};
 
-const mapDispatchToProps = dispatch => {
-
-}
- 
 export default connect(mapStateToProps)(SpecificArticle);

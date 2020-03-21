@@ -10,7 +10,8 @@ const rootReducer = (state = initialState, action) => {
     case "CLEAR_ARTICLES":
       return {
         ...state,
-        articleList: []
+        articleList: [],
+        readArticle: action.payload.readArticle
       }
     default:
       return state;

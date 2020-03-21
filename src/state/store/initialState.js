@@ -1,5 +1,6 @@
 const initialState = {
-	articleList: []
+	articleList: [],
+	readArticle: []
 }
 
 export default initialState

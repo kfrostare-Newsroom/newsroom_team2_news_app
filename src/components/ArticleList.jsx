@@ -14,10 +14,16 @@ class ArticleList extends Component {
     });
   }
 
-  // onClick={this.props.dispatch({ type: "CLEAR_ARTICLES", payload: {articleList: [] }})}
+  async articleFetcher (event) {
+    let id = event.target.dataset.id
+    let response = await axios.get(`/articles/${id}`)
+    this.props.dispatch({
+      type: "CLEAR_ARTICLES",
+      payload: { articleList: [], readArticle: response.data}
+    })
+  }
 
   render() {
-
     let articleDisplay;
     if (this.props.articleList !== []) {
       articleDisplay = this.props.articleList.map(article => {
@@ -28,8 +34,9 @@ class ArticleList extends Component {
             pad="medium"
             margin="medium"
             className="article"
+            key={article.id}
           >
-            <div id ={article.id} className="article-box">
+            <div id={article.id} className="article-box">
               <div className="feature-article">
                 <div className="article-headline">
                   <h2>{article.title}</h2>
@@ -37,20 +44,25 @@ class ArticleList extends Component {
                   <div className="article-teaser">
                     <p>{article.teaser}</p>
                   </div>
-                  <Button type="submit" primary label="Read More" onClick={() => this.props.dispatch({ type: "CLEAR_ARTICLES", payload: {articleList: [] }})}></Button>
+                  <Button
+                    data-id={article.id}
+                    type="submit"
+                    primary
+                    label="Read More"
+                    onClick={this.articleFetcher.bind(this)}
+                  ></Button>
                 </div>
               </div>
             </div>
           </Box>
-          
         );
       });
     }
     return (
-    <Grommet full theme={grommet}>
-      {articleDisplay}
-    </Grommet>
-    )
+      <Grommet full theme={grommet}>
+        {articleDisplay}
+      </Grommet>
+    );
   }
 }
 

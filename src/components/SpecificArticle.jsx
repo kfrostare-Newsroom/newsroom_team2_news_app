@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Box, Grommet, Button } from "grommet";
+import { grommet } from "grommet/themes";
 
 class SpecificArticle extends Component {
   render() {
@@ -8,11 +10,18 @@ class SpecificArticle extends Component {
       specArticle = this.props.readArticle;
     }
     return (
-      <>
-        <h2>{specArticle.title}</h2>
-        <p>{specArticle.content}</p>
-        <button onClick={() => this.props.dispatch({type: "HIDE_ARTICLE"})}>Back</button>
-      </>
+      <Grommet full theme={grommet}>
+        <Box>
+          <h2>{specArticle.title}</h2>
+          <p>{specArticle.content}</p>
+        </Box>
+        <Button 
+          type="submit"
+          primary
+          label="Back"
+          onClick={() => this.props.dispatch({type: "HIDE_ARTICLE"})}>
+        </Button>
+      </Grommet>
     );
   }
 }

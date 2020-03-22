@@ -16,7 +16,8 @@ class SpecificArticle extends Component {
         border={{ color: "brand", size: "small" }}
         pad="medium"
         margin="medium"
-        className="article">
+        className="article"
+        id={specArticle.id}>
           <div>
             <div className="spec-title">
               <h2>{specArticle.title}</h2>

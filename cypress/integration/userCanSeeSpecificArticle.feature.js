@@ -8,7 +8,7 @@ describe("user can view specific articles", () => {
     });
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/articles/1",
+      url: "http://localhost:3000/api/articles/2",
       response: "fixture:specific_article.json"
     })
     cy.visit("/");
@@ -17,7 +17,8 @@ describe("user can view specific articles", () => {
   it("user can navigate to article", () => {
     cy.get(".article-box").last().within(() => {
       cy.get("button").contains("Read More").click()
+      cy.get("div.spec-title").should("contain", "Toilet")
+      cy.get(".spec-content").should("contain", "The world is running out of hope.")
     });
   })
 });
-

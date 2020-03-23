@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ArticleList from "./components/ArticleList";
 import { Grommet, Main, Heading } from "grommet";
 import { grommet } from "grommet/themes";
+import SpecificArticle from "./components/SpecificArticle";
 
 class App extends Component {
   render() {
@@ -10,7 +11,8 @@ class App extends Component {
         <Grommet full theme={grommet}>
           <Main fill align="center" justify="center">
             <Heading>VAMOS TEAM 2</Heading>
-            <ArticleList />
+            {this.props.state.showArticleList && <ArticleList />}
+            {this.props.state.readArticle && <SpecificArticle />}
           </Main>
         </Grommet>
     );

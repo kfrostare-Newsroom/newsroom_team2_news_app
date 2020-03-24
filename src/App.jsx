@@ -11,7 +11,7 @@ class App extends Component {
         <Grommet full theme={grommet}>
           <Main fill align="center" justify="center">
             <Heading>Urban Living</Heading>
-            <Box>A source of work / life inspiration for young professionals.</Box>
+            A source of work / life inspiration for young professionals.
             {this.props.state.showArticleList && <ArticleList />}
             {this.props.state.readArticle && <SpecificArticle />}
           </Main>

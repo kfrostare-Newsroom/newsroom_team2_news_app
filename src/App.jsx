@@ -10,7 +10,7 @@ class App extends Component {
     return (
         <Grommet full theme={grommet}>
           <Main fill align="center" justify="center">
-            <Heading>VAMOS TEAM 2</Heading>
+            <Heading>Urban Living</Heading>
             {this.props.state.showArticleList && <ArticleList />}
             {this.props.state.readArticle && <SpecificArticle />}
           </Main>

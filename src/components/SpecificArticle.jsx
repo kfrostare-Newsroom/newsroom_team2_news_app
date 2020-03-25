@@ -5,7 +5,7 @@ import { grommet } from 'grommet/themes'
 
 class SpecificArticle extends Component {
   state = {
-    premium_user: true
+    premium_user: false
   }
 
   render () {
@@ -18,13 +18,10 @@ class SpecificArticle extends Component {
       specArticle = this.props.readArticle
 
       if (!this.state.premium_user) {
-        trimmedArticle = specArticle.content.substring(0, 200)
-        trimmedArticle = trimmedArticle.concat('...')
+        trimmedArticle = specArticle.content.substring(0, 200)+ "..."
       }
 
-      articleContent = this.state.premium_user
-        ? specArticle.content
-        : trimmedArticle
+      articleContent = this.state.premium_user ? specArticle.content : trimmedArticle
     }
 
     showContent = this.state.premium_user ? (
@@ -38,7 +35,7 @@ class SpecificArticle extends Component {
       </>
     ) : (
       <>
-      <div className='spec-content'>
+      <div className='spec-content restricted'>
         <p>{ articleContent }</p>
       </div>
       <p>

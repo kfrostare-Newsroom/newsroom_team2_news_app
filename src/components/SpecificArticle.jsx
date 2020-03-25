@@ -4,11 +4,19 @@ import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 
 class SpecificArticle extends Component {
+  state = {
+    authenticated: false
+  }
+
   render() {
     let specArticle;
+    let showContent;
+
     if (this.props.readArticle !== undefined) {
-      specArticle = this.props.readArticle;
+      specArticle = this.props.readArticle
+      showContent = this.state.authenticated ? specArticle.content : specArticle.content.substring(0, 200)
     }
+
     return (
       <Grommet full theme={grommet}>
         <Box 
@@ -23,7 +31,7 @@ class SpecificArticle extends Component {
               <h2>{specArticle.title}</h2>
             </div>
             <div className="spec-content">
-              <p>{specArticle.content}</p>
+              <p>{showContent}</p>
             </div>
             <div className="created-date">
               <p>Submitted on {specArticle.created_at}</p>

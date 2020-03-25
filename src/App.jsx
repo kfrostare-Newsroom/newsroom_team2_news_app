@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/ArticleList";
-import { Grommet, Main, Heading, Box } from "grommet";
+import { Grommet, Main, Heading } from "grommet";
 import { grommet } from "grommet/themes";
 import SpecificArticle from "./components/SpecificArticle";
 

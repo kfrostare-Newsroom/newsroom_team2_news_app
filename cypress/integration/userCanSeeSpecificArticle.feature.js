@@ -23,12 +23,11 @@ describe("user can view specific articles", () => {
           .click();
       });
       cy.get(".article")
-      .last()
       .within(() => {
         cy.get(".spec-title").should("contain", "Toilet");
         cy.get(".spec-content").should(
           "contain",
-          "people are selling toilet paper to gold prices!"
+          "People are selling toilet paper to gold prices!"
         );
       });
     

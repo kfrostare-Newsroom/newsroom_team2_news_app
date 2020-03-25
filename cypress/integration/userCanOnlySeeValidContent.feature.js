@@ -30,7 +30,7 @@ describe("Base user can only ", () => {
       });
   });
 
-  it("Logged in can see the whole article", () => {
+  xit("Logged in can see the whole article", () => {
     before(() => {
       cy.route({
         method: "POST",

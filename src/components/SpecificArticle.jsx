@@ -5,7 +5,7 @@ import { grommet } from 'grommet/themes'
 
 class SpecificArticle extends Component {
   state = {
-    premium_user: false
+    premium_user: true
   }
 
   render () {

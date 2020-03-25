@@ -5,52 +5,47 @@ import { grommet } from 'grommet/themes'
 
 class SpecificArticle extends Component {
   state = {
-    premium_user: true
+    premium_user: false
   }
 
   render () {
     let specArticle
+    let articleContent
     let showContent
-    let trimmedString
-    let showPremiumMessage
-    let premium_message
+    let trimmedArticle
 
     if (this.props.readArticle !== undefined) {
       specArticle = this.props.readArticle
 
       if (!this.state.premium_user) {
-        trimmedString = specArticle.content.substring(0, 200)
-        trimmedString = trimmedString.concat('...')
+        trimmedArticle = specArticle.content.substring(0, 200)
+        trimmedArticle = trimmedArticle.concat('...')
       }
 
-      showContent = this.state.premium_user
+      articleContent = this.state.premium_user
         ? specArticle.content
-        : trimmedString
+        : trimmedArticle
     }
 
-    premium_message = (
+    showContent = this.state.premium_user ? (
       <>
         <div className='spec-content'>
-          <p>{showContent}</p>
-        </div>
-        <p>
-          This article require a premium membership.{' '}
-          <a href='/payment'>Click here to set up a subscription</a>
-        </p>
-      </>
-    )
-
-    showPremiumMessage = this.state.premium_user ? (
-      <>
-        <div className='spec-content'>
-          <p>{showContent}</p>
+          <p>{ articleContent }</p>
         </div>
         <div className='created-date'>
           <p>Submitted on {specArticle.created_at}</p>
         </div>
       </>
     ) : (
-      premium_message
+      <>
+      <div className='spec-content'>
+        <p>{ articleContent }</p>
+      </div>
+      <p>
+        This article require a premium membership.{' '}
+        <a href='/payment'>Click here to set up a subscription</a>
+      </p>
+    </>
     )
 
     return (
@@ -67,7 +62,7 @@ class SpecificArticle extends Component {
             <div className='spec-title'>
               <h2>{specArticle.title}</h2>
             </div>
-            {showPremiumMessage}
+            {showContent}
           </div>
         </Box>
         <Box align='center'>

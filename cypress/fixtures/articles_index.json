@@ -2,19 +2,21 @@
   "articles": [
       {
           "id": 1,
-          "title": "Toilet paper!",
+          "title": "Free Article",
           "teaser": "The world is running out of hope.",
           "content": "People are bulking tons of toilet paper that's an issue for everyone",
           "created_at": "2020-03-19T19:30:12.000Z",
-          "updated_at": "2020-03-19T19:30:12.000Z"
+					"updated_at": "2020-03-19T19:30:12.000Z",
+					"article_class": "free"
       },
       {
           "id": 2,
-          "title": "Toilet",
+          "title": "Premium Article",
           "teaser": "The new gold",
           "content": "people are selling toilet paper to gold prices!",
           "created_at": "2020-03-19T19:30:12.000Z",
-          "updated_at": "2020-03-19T19:30:12.000Z"
+          "updated_at": "2020-03-19T19:30:12.000Z",
+					"article_class": "premium"
       }
   ]
 }

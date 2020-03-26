@@ -1,4 +1,4 @@
-describe("user can view articles", () => {
+describe("Index path:", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
@@ -10,9 +10,9 @@ describe("user can view articles", () => {
   });
 
   it("shows list of articles", () => {
-    cy.get(".article-headline").should("contain", "Toilet paper!")
+    cy.get(".article-headline").should("contain", "Free Article")
     cy.get(".article-teaser").should("contain", "The world is running out of hope.")
-    cy.get(".article-headline").should("contain", "Toilet")
+    cy.get(".article-headline").should("contain", "Premium Article")
     cy.get(".article-teaser").should("contain", "The new gold")
   });
 });

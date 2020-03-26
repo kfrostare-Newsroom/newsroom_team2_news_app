@@ -21,16 +21,15 @@ class SpecificArticle extends Component {
 		if (this.props.readArticle) {
 			specArticle = this.props.readArticle;
 
-			if (!this.state.premiumUser) {
+			if (specArticle.article_class === 'premium' && !this.state.premiumUser ) {
 				trimmedArticle = specArticle.content.substring(0, 200) + "...";
 			}
 
-			articleContent = this.state.premiumUser
+			articleContent = (specArticle.article_class === 'free' || this.state.premiumUser )
 				? specArticle.content
 				: trimmedArticle;
 		}
-
-		showContent = this.state.premiumUser ? (
+		showContent = (specArticle.article_class === 'free' || this.state.premiumUser ) ? (
 			<>
 				<div className="spec-content">
 					<p>{articleContent}</p>

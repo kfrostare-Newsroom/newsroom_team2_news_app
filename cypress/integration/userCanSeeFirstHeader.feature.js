@@ -1,4 +1,4 @@
-describe("user views menus", () => {
+describe("User Interface:", () => {
   beforeEach(() => {
     cy.visit("/");
   });

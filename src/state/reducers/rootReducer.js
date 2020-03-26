@@ -12,18 +12,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         readArticle: action.payload.readArticle,
         showArticleList: false
-      }
-      case "HIDE_ARTICLE":
-        return {
-          ...state,
-          readArticle: undefined,
-          showArticleList: true
-				}
-			case "AUTHENTICATE":
-				return {
-					...state,
-					...action.payload
-				}
+      };
+    case "HIDE_ARTICLE":
+      return {
+        ...state,
+        readArticle: undefined,
+        showArticleList: true
+      };
+    case "AUTHENTICATE":
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }

@@ -11,6 +11,12 @@ describe("User can pay for subscription:", () => {
       url: "http://localhost:3000/api/articles/2",
       response: "fixture:specific_article_2.json"
     });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/subscriptions",
+      response: {status: "paid"}
+    });
+
     cy.visit("/");
     cy.get("#2")
       .last()

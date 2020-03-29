@@ -18,7 +18,7 @@ window.store = store;
 
 ReactDOM.render(
 	<Provider store={store}>
-	<StripeProvider apiKey="pk_test_UmHwHMrhpkYb9JMGFx29IehA00HEZ8ErkY">
+	<StripeProvider apiKey="">
 		<App />
 	</StripeProvider>
 	</Provider>, document.getElementById('root'));

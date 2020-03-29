@@ -30,6 +30,12 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload,
         readArticle: undefined,
       }
+      case "SUCCESS_MESSAGE":
+        return {
+          ...state,
+          ...action.payload,
+          showPaymentForm: false
+        }
     default:
       return state;
   }

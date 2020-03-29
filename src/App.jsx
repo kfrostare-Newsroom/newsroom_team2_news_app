@@ -14,6 +14,7 @@ class App extends Component {
         <Main fill align="center" justify="center">
           <Heading>Urban Living</Heading>A source of work / life inspiration for
           young professionals.
+          <Heading level="2" id="success-message">{this.props.state.successMessage}</Heading>
           {this.props.state.showArticleList && <ArticleList />}
           {this.props.state.readArticle && <SpecificArticle />}
           {this.props.state.showPaymentForm && <Elements><PaymentForm /></Elements> } 

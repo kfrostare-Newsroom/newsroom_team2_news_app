@@ -51,9 +51,20 @@ describe("User can pay for subscription:", () => {
         .find('input[name="cvc"]')
         .type("575", { delay: 10 });
     });
-    cy.get('button')
-    .contains("Submit Payment")
-    .click()
-    cy.get('#success-message').should('contain', 'Congratulations you are now a subscriber!')
+    cy.get("button")
+      .contains("Submit Payment")
+      .click();
+    cy.get("#success-message").should(
+      "contain",
+      "Congratulations you are now a subscriber!"
+    );
+    cy.get("button")
+      .contains("To The News!")
+      .click();
+    cy.get(".article-headline").should("contain", "Free Article");
+    cy.get(".article-teaser").should(
+      "contain",
+      "The world is running out of hope."
+    );
   });
 });

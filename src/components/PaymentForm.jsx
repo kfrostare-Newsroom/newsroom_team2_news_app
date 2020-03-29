@@ -17,7 +17,6 @@ const PaymentForm = props => {
     let token = stripeResponse.token.id
     let paymentState = await axios.post("/subscriptions", {stripeToken: token})
     if (paymentState.data.status === "paid") {
-      debugger;
       dispatch( {type: "SUCCESS_MESSAGE", payload: {successMessage: "Congratulations you are now a subscriber!"}})
     } 
     

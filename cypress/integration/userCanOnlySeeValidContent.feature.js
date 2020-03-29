@@ -1,4 +1,4 @@
-describe("Aricle view:", () => {
+describe("Article view:", () => {
   beforeEach(() => {
     cy.server();
     cy.route({

@@ -5,6 +5,7 @@ import { Grommet, Main, Heading } from "grommet";
 import { grommet } from "grommet/themes";
 import SpecificArticle from "./components/SpecificArticle";
 import PaymentForm  from "./components/PaymentForm";
+import { Elements } from "react-stripe-elements"
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
           young professionals.
           {this.props.state.showArticleList && <ArticleList />}
           {this.props.state.readArticle && <SpecificArticle />}
-          {this.props.state.showPaymentForm && <PaymentForm />}
+          {this.props.state.showPaymentForm && <Elements> <PaymentForm /> </Elements> } 
         </Main>
       </Grommet>
     );

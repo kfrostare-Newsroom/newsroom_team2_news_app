@@ -23,6 +23,15 @@ describe("User can pay for subscription:", () => {
 
   it("click in buy subscription", () => {
     cy.get("button").contains("Buy Subscription").click()
-    cy.get("form[id='payment-form']").should("be.visible")
-  });
+    cy.wait(1000)
+    cy.get("form[id='payment-form']")
+      .should("be.visible")
+    cy.get('iframe[name^="__privateStripeFrame5"]')
+      .then($iframe => {
+        const $body = $iframe.contents().find('body');
+        cy.wrap($body)
+          .find('input[name="cardnumber"]')
+          .type('4242424242424242', { delay: 10 })
+      })
+  })
 });

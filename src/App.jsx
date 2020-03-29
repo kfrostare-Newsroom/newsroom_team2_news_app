@@ -16,7 +16,7 @@ class App extends Component {
           young professionals.
           {this.props.state.showArticleList && <ArticleList />}
           {this.props.state.readArticle && <SpecificArticle />}
-          {this.props.state.showPaymentForm && <Elements> <PaymentForm /> </Elements> } 
+          {this.props.state.showPaymentForm && <Elements><PaymentForm /></Elements> } 
         </Main>
       </Grommet>
     );

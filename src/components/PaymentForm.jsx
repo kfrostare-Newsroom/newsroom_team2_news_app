@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux";
 import { Form, Heading } from "grommet";
 import {
   CardNumberElement,
@@ -11,8 +10,7 @@ import {
 
 const PaymentForm = () => {
 
-    return (
-      <>
+    return (  
       <Form id="payment-form">
         <Heading level="4">Payment Form</Heading>
         <label>Card number:</label>
@@ -21,8 +19,7 @@ const PaymentForm = () => {
         <CardExpiryElement />
         <label>CVC:</label>
         <CardCVCElement />
-      </Form>
-      </>
+      </Form>     
     )
 }
 

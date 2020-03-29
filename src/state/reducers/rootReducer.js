@@ -24,6 +24,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         ...action.payload
       };
+    case "PAYMENT_FORM":
+      return {
+        ...state,
+        ...action.payload,
+        readArticle: undefined,
+      }
     default:
       return state;
   }

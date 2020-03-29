@@ -48,7 +48,7 @@ class SpecificArticle extends Component {
           </div>
           <p>
             This article require a premium membership.{" "}
-            <Button label="Buy Subscription" color="lightgreen" />
+            <Button label="Buy Subscription" color="lightgreen" onClick={() => this.props.dispatch({type: "PAYMENT_FORM", payload: {showPaymentForm: true}})} />
           </p>
         </>
       );

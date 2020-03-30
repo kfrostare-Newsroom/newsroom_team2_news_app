@@ -10,7 +10,7 @@ import { StripeProvider } from "react-stripe-elements"
 
 axios.defaults.baseURL = "http://localhost:3000/api/";
 // axios.defaults.baseURL = "https://urban-living.herokuapp.com/api/";
-const key = process.env.STRIPE_API_KEY;
+const key = `${process.env.REACT_APP_STRIPE_API_KEY }`
 const store = configureStore();
 window.store = store;
 

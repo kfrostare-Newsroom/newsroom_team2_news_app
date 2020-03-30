@@ -46,17 +46,23 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload
-      }
-      case "LOGIN":
-        return {
-          ...state,
-          ...action.payload
-        }
-      case "LOGOUT":
-        return {
-          ...state,
-          ...action.payload
-        }    
+      };
+    case "LOGIN":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "PREMIUM":
+      return {
+        ...state,
+        ...action.payload
+      };
+
     default:
       return state;
   }

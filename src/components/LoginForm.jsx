@@ -16,6 +16,7 @@ class LoginForm extends Component {
         payload: {
           authenticated: true,
           userEmail: response.data.email,
+          currentUser: response.data.role,
           firstPage: true,
           showArticleList: true,
           showLogoutButton: true 

@@ -3,7 +3,8 @@ const initialState = {
 	showArticleList: true,
 	currentUser: {},
   showLoginForm: false,
-  showLoginButton: true
+	showLoginButton: true,
+	authenticated: false
 }
 
 export default initialState

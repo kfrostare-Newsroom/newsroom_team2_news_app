@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import auth from "../modules/auth";
 import { Form, TextInput, Button, Box } from "grommet";
 import { connect } from "react-redux";
+import LogoutButton from "./LogoutButton";
 
 class LoginForm extends Component {
   onLogin = async event => {
@@ -17,8 +18,7 @@ class LoginForm extends Component {
           authenticated: true,
           userEmail: response.data.email,
           firstPage: true,
-          showArticleList: true,
-          showLoginButton: false
+          showArticleList: true
         }
       });
     } catch (error) {
@@ -29,7 +29,7 @@ class LoginForm extends Component {
     let login;
 
     if (this.props.authenticated === true) {
-      login = <p id="message">Hello {this.props.userEmail}</p>
+      login = <p id="message">Hello {this.props.userEmail}</p>;
     } else {
       login = (
         <Box>

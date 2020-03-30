@@ -8,7 +8,8 @@ class LoginButton extends Component {
       type: "SHOW_LOGIN_FORM",
       payload: {
         showLoginForm: true,
-        showArticleList: false
+        showArticleList: false,
+        showLoginButton: false
       }
     });
   };

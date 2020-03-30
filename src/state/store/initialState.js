@@ -2,7 +2,8 @@ const initialState = {
 	articleList: [],
 	showArticleList: true,
 	currentUser: {},
-	showLoginForm: false
+  showLoginForm: false,
+  showLoginButton: true
 }
 
 export default initialState

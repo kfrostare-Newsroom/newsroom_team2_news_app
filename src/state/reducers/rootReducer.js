@@ -46,7 +46,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload
-      }  
+      }
+      case "LOGIN":
+        return {
+          ...state,
+          ...action.payload
+        }  
     default:
       return state;
   }

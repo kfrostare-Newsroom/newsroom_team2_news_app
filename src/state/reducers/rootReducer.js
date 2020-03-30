@@ -45,8 +45,7 @@ const rootReducer = (state = initialState, action) => {
     case "SHOW_LOGIN_FORM":
       return {
         ...state,
-        showLoginForm: true,
-        showArticleList: false,
+        ...action.payload
       }  
     default:
       return state;

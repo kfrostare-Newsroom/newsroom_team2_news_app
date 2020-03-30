@@ -17,9 +17,8 @@ describe("User login functionality", () => {
       cy.get("#email").type("user@mail.com");
       cy.get("#password").type("password");
       cy.get("button")
-        .contains("Login")
+        .contains("Sign in")
         .click();
     });
-    cy.get("#message").should("contain", "Hello user@mail.com");
   });
 });

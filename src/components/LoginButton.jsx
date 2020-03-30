@@ -1,16 +1,21 @@
-import React from 'react'
-import { Button } from "grommet"
-import { connect, useDispatch} from "react-redux"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Button } from "grommet";
 
-const LoginButton = () => {
-  const dispatch = useDispatch()
+class LoginButton extends Component {
+  clickHandler = () => {
+    this.props.dispatch({
+      type: "SHOW_LOGIN_FORM",
+      payload: {
+        showLoginForm: true,
+        showArticleList: false
+      }
+    });
+  };
 
-  return (
-    <Button 
-    label="Login"
-    onClick={dispatch({type: "SHOW_LOGIN_FORM"})}
-    />
-  )
+  render() {
+    return <Button onClick={this.clickHandler} label="Login" />;
+  }
 }
 
-export default connect()(LoginButton)
+export default connect()(LoginButton);

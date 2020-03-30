@@ -16,7 +16,7 @@ const LoginForm = () => {
           type="password"
           placeholder="password"
         />
-        <Button margin="small" type="submit" label="Login" />
+        <Button margin="small" type="submit" label="Sign in" />
       </Form>
     </Box>
   );

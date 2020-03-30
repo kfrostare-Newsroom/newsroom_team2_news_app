@@ -14,9 +14,8 @@ describe("User can pay for subscription:", () => {
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/subscriptions",
-      response: {status: "paid"}
+      response: { status: "paid" }
     });
-
     cy.visit("/");
     cy.get("#2")
       .last()

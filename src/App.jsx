@@ -17,7 +17,7 @@ class App extends Component {
         <Main fill align="center" justify="center">
           <Heading>Urban Living</Heading>A source of work / life inspiration for
           young professionals.
-          {!this.props.state.authenticated && <LogoutButton />}
+          {this.props.state.showLogoutButton && <LogoutButton />}
           {this.props.state.showLoginButton && <LoginButton />}
           {this.props.state.showLoginForm && <LoginForm />}
           {this.props.state.successMessage && (

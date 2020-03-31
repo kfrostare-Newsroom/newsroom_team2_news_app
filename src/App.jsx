@@ -11,6 +11,12 @@ import LoginButton from "./components/LoginButton"
 import LogoutButton from "./components/LogoutButton";
 
 class App extends Component {
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(async pos => {
+      const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
+      this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
+    }
+  }
   render() {
     return (
       <Grommet full theme={grommet}>

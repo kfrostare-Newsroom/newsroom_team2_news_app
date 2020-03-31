@@ -13,11 +13,15 @@ const PaymentForm = props => {
   const dispatch = useDispatch();
   const submitPayment = async event => {
     event.preventDefault();
+    let headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'));
     let stripeResponse = await props.stripe.createToken();
     let token = stripeResponse.token.id;
+    debugger
     let paymentState = await axios.post("/subscriptions", {
       stripeToken: token
-    });
+    },
+    {headers: headers}
+    );
 
     if (paymentState.data.status === "paid") {
       dispatch({

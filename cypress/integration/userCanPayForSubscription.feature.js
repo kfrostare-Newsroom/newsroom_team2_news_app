@@ -16,7 +16,34 @@ describe("User can pay for subscription:", () => {
       url: "http://localhost:3000/api/subscriptions",
       response: { status: "paid" }
     });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/auth/sign_in",
+      response: "fixture:user_login.json",
+      headers: {
+        uid: "user@mail.com"
+      }
+    });
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3000/api/auth/validate_token?uid=user@mail.com",
+      response: "fixture:user_login.json",
+      headers: {
+        uid: "user@mail.com"
+      }
+    });
     cy.visit("/");
+    cy.get("button")
+      .contains("Login")
+      .click();
+    cy.get("#login-form").within(() => {
+      cy.get("#email").type("user@mail.com");
+      cy.get("#password").type("password");
+      cy.get("button")
+        .contains("Sign in")
+        .click();
+      cy.wait(1000);
+    });
     cy.get("#2")
       .last()
       .within(() => {
@@ -53,6 +80,7 @@ describe("User can pay for subscription:", () => {
     cy.get("button")
       .contains("Submit Payment")
       .click();
+    cy.wait(1000);
     cy.get("#success-message").should(
       "contain",
       "Congratulations you are now a subscriber!"

@@ -4,13 +4,12 @@ import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 
 class SpecificArticle extends Component {
-  state = {
-    premiumUser: false
-  };
-
   componentDidMount() {
-    this.props.currentUser.role === "subscriber" &&
-      this.setState({ premiumUser: true });
+    if (this.props.currentUser === "subscriber") {
+      this.props.dispatch({ type: "PREMIUM", payload: { premiumUser: true } });
+    } else {
+      this.props.dispatch({ type: "PREMIUM", payload: { premiumUser: false } });
+    }
   }
 
   render() {
@@ -22,23 +21,26 @@ class SpecificArticle extends Component {
     if (this.props.readArticle) {
       specArticle = this.props.readArticle;
 
-      if (specArticle.article_class === "premium" && !this.state.premiumUser) {
+      if (
+        (specArticle.article_class === "premium") &
+        (this.props.premiumUser === false)
+      ) {
         trimmedArticle = specArticle.content.substring(0, 200) + "...";
       }
 
       articleContent =
-        specArticle.article_class === "free" || this.state.premiumUser
+        specArticle.article_class === "free" || this.props.premiumUser
           ? specArticle.content
           : trimmedArticle;
     }
     showContent =
-      specArticle.article_class === "free" || this.state.premiumUser ? (
+      specArticle.article_class === "free" || this.props.premiumUser ? (
         <>
           <div className="spec-content">
             <p>{articleContent}</p>
           </div>
           <div className="created-date">
-            <p>Submitted on {specArticle.created_at}</p>
+            <p>Submitted on {specArticle.new_created_at}</p>
           </div>
         </>
       ) : (
@@ -94,7 +96,8 @@ class SpecificArticle extends Component {
 const mapStateToProps = state => {
   return {
     readArticle: state.readArticle,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    premiumUser: state.premiumUser
   };
 };
 

@@ -16,6 +16,22 @@ describe("Article view:", () => {
       url: "http://localhost:3000/api/articles/1",
       response: "fixture:specific_article_1.json"
     });
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/auth/sign_in",
+      response: "fixture:subscriber_login.json",
+      headers: {
+        uid: "subscriber@mail.com"
+      }
+    });
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3000/api/auth/validate_token?uid=subscriber@mail.com",
+      response: "fixture:subscriber_login.json",
+      headers: {
+        uid: "subscriber@mail.com"
+      }
+    });
     cy.visit("/");
   });
 
@@ -100,14 +116,16 @@ describe("Article view:", () => {
   });
 
   it('Authenticated user that is a SUBSCRIBER can se full length of all articles', () => {
-    cy.window()
-      .then(window => {
-        window.store.dispatch(
-          {
-            type: "AUTHENTICATE",
-            payload: { currentUser: { email: 'thomas@craft.com', role: 'subscriber' } }
-          })
-      })
+    cy.get("button")
+      .contains("Login")
+      .click();
+    cy.get("#login-form").within(() => {
+      cy.get("#email").type("subscriber@mail.com");
+      cy.get("#password").type("password");
+      cy.get("button")
+        .contains("Sign in")
+        .click();
+    });
 
     cy.get("#1")
       .last()

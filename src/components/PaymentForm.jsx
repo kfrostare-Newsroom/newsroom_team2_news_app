@@ -16,7 +16,6 @@ const PaymentForm = props => {
     let headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'));
     let stripeResponse = await props.stripe.createToken();
     let token = stripeResponse.token.id;
-    debugger
     let paymentState = await axios.post("/subscriptions", {
       stripeToken: token
     },

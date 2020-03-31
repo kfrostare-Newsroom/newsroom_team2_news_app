@@ -53,6 +53,7 @@ describe("User can pay for subscription:", () => {
     cy.get("button")
       .contains("Submit Payment")
       .click();
+    cy.wait(1000);
     cy.get("#success-message").should(
       "contain",
       "Congratulations you are now a subscriber!"

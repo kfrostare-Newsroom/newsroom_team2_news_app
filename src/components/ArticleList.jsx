@@ -17,7 +17,6 @@ class ArticleList extends Component {
   async articleFetcher (event) {
     let id = event.target.dataset.id
     let response = await axios.get(`/articles/${id}`)
-    debugger
     this.props.dispatch({
       type: "SHOW_ARTICLE",
       payload: { readArticle: response.data }

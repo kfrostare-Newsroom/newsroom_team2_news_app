@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": 2,
+    "role": "subscriber",
+    "email": "subscriber@mail.com",
+    "provider": "email",
+    "uid": "subscriber@mail.com",
+    "name": "trial",
+    "allow_password_change": false
+  }
+}

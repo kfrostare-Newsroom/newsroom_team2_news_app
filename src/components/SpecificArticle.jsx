@@ -14,9 +14,6 @@ class SpecificArticle extends Component {
     } else {
       this.props.dispatch({ type: "PREMIUM", payload: { premiumUser: false } });
     }
-
-    // this.props.currentUser == "subscriber" &&
-    //   this.props.dispatch({type:"PREMIUM", payload: { premiumUser: true }});
   }
 
   render() {
@@ -47,7 +44,7 @@ class SpecificArticle extends Component {
             <p>{articleContent}</p>
           </div>
           <div className="created-date">
-            <p>Submitted on {specArticle.created_at}</p>
+            <p>Submitted on {specArticle.new_created_at}</p>
           </div>
         </>
       ) : (

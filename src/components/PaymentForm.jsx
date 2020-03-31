@@ -15,7 +15,6 @@ const PaymentForm = props => {
     event.preventDefault();
     let stripeResponse = await props.stripe.createToken();
     let token = stripeResponse.token.id;
-    debugger
     let paymentState = await axios.post("/subscriptions", {
       stripeToken: token
     });

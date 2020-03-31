@@ -4,10 +4,6 @@ import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 
 class SpecificArticle extends Component {
-  // state = {
-  //   premiumUser: false
-  // };
-
   componentDidMount() {
     if (this.props.currentUser === "subscriber") {
       this.props.dispatch({ type: "PREMIUM", payload: { premiumUser: true } });
@@ -26,8 +22,8 @@ class SpecificArticle extends Component {
       specArticle = this.props.readArticle;
 
       if (
-        specArticle.article_class === "premium" &
-        this.props.premiumUser === false
+        (specArticle.article_class === "premium") &
+        (this.props.premiumUser === false)
       ) {
         trimmedArticle = specArticle.content.substring(0, 200) + "...";
       }

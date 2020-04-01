@@ -7,24 +7,33 @@ import SpecificArticle from "./components/SpecificArticle";
 import PaymentForm from "./components/PaymentForm";
 import { Elements } from "react-stripe-elements";
 import LoginForm from "./components/LoginForm";
-import LoginButton from "./components/LoginButton"
+import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
-import axios from "axios"
+import axios from "axios";
 
 class App extends Component {
   componentDidMount() {
-  navigator.geolocation.getCurrentPosition( async pos => {
-  const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
-  this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload:{session: {edition: currentSession.data.session.edition }}})
-     })
-    }
-  render() { 
-    let edition = this.props.state.session.edition
+    navigator.geolocation.getCurrentPosition(async pos => {
+      const currentSession = await axios.post(
+        "http://localhost:3000/api/sessions",
+        { location: pos.coords }
+      );
+      this.props.dispatch({
+        type: "SET_CURRENT_SESSION",
+        payload: { session: { edition: currentSession.data.session.edition } }
+      });
+    });
+  }
+  render() {
+    let edition = this.props.state.session.edition;
     return (
       <Grommet full theme={grommet}>
         <Main fill align="center" justify="center">
           <Heading>Urban Living</Heading>
-          <Heading margin="small" level="4" id="welcome-message"> {`${edition} Edition`}  </Heading>
+          <Heading margin="small" level="4" id="welcome-message">
+            {" "}
+            {`${edition} Edition`}{" "}
+          </Heading>
           A source of work / life inspiration for young professionals.
           {this.props.state.showLogoutButton && <LogoutButton />}
           {this.props.state.showLoginButton && <LoginButton />}
@@ -60,7 +69,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    state: state,
+    state: state
   };
 };
 

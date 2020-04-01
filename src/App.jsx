@@ -12,19 +12,22 @@ import LogoutButton from "./components/LogoutButton";
 
 class App extends Component {
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(async pos => {
-      const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
-      this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
+  navigator.geolocation.getCurrentPosition( pos => {
+    debugger
+  //     const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
+  //     this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
+     })
     }
-  }
   render() {
     return (
       <Grommet full theme={grommet}>
         <Main fill align="center" justify="center">
-          <Heading>Urban Living</Heading>A source of work / life inspiration for
-          young professionals.
+          <Heading>Urban Living</Heading>
+          <Heading margin="small" level="4" id="welcome-message"> {`Stockholm Edition`}  </Heading>
+          A source of work / life inspiration for young professionals.
           {this.props.state.showLogoutButton && <LogoutButton />}
           {this.props.state.showLoginButton && <LoginButton />}
+          {this.props.state.showLoginForm && <LoginForm />}
           {this.props.state.showLoginForm && <LoginForm />}
           {this.props.state.successMessage && (
             <Heading level="2" id="success-message">

@@ -20,6 +20,6 @@ describe("User can see the current edition based on location", () => {
   });
 
   it("see what edition we are displaying", () => {
-    cy.get("#header").should("contain", "Stockholm edition");
+    cy.get("#welcome-message").should("contain", "Stockholm Edition")
   });
 });

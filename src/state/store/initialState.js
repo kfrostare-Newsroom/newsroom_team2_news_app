@@ -6,7 +6,7 @@ const initialState = {
   showLoginButton: true,
   showLogoutButton: false,
   authenticated: false,
-  session: { edition: undefined }
+  session: {edition: undefined} 
 };
 
 export default initialState;

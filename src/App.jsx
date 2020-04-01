@@ -15,10 +15,11 @@ class App extends Component {
   componentDidMount() {
   navigator.geolocation.getCurrentPosition( async pos => {
   const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
-  this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload: currentSession.data })
+  this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload:{session: currentSession.data.session.edition }})
      })
     }
-  render() {
+  render() { 
+    let edition = this.props.state.session
     return (
       <Grommet full theme={grommet}>
         <Main fill align="center" justify="center">
@@ -61,7 +62,6 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     state: state,
-    edition: state.session.edition
   };
 };
 

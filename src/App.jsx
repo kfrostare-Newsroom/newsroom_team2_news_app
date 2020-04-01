@@ -15,11 +15,11 @@ class App extends Component {
   componentDidMount() {
   navigator.geolocation.getCurrentPosition( async pos => {
   const currentSession = await axios.post('http://localhost:3000/api/sessions', { location: pos.coords })
-  this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload:{session: currentSession.data.session.edition }})
+  this.props.dispatch({ type: 'SET_CURRENT_SESSION', payload:{session: {edition: currentSession.data.session.edition }}})
      })
     }
   render() { 
-    let edition = this.props.state.session
+    let edition = this.props.state.session.edition
     return (
       <Grommet full theme={grommet}>
         <Main fill align="center" justify="center">
@@ -28,7 +28,6 @@ class App extends Component {
           A source of work / life inspiration for young professionals.
           {this.props.state.showLogoutButton && <LogoutButton />}
           {this.props.state.showLoginButton && <LoginButton />}
-          {this.props.state.showLoginForm && <LoginForm />}
           {this.props.state.showLoginForm && <LoginForm />}
           {this.props.state.successMessage && (
             <Heading level="2" id="success-message">

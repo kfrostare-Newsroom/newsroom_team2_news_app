@@ -38,7 +38,8 @@ const App = props => {
     <Grommet full theme={grommet}>
       <Main fill align="center" justify="center">
         <LanguageSelector />
-        <Heading>Urban Living</Heading> {t("tagline")}
+        <Heading>Urban Living</Heading>
+        <div id="tagline">{t("tagline")}</div>
         <Heading margin="small" level="4" id="welcome-message">
           {" "}
           {`${edition} Edition`}{" "}

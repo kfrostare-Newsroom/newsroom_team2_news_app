@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import ArticleList from "./components/ArticleList";
 import { Grommet, Main, Heading, Button } from "grommet";
@@ -7,47 +7,47 @@ import SpecificArticle from "./components/SpecificArticle";
 import PaymentForm from "./components/PaymentForm";
 import { Elements } from "react-stripe-elements";
 import LoginForm from "./components/LoginForm";
-import LoginButton from "./components/LoginButton"
+import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import { useTranslation } from "react-i18next";
 
-class App extends Component {
-  render() {
-    return (
-      <Grommet full theme={grommet}>
-        <Main fill align="center" justify="center">
-          <Heading>Urban Living</Heading>A source of work / life inspiration for
-          young professionals.
-          {this.props.state.showLogoutButton && <LogoutButton />}
-          {this.props.state.showLoginButton && <LoginButton />}
-          {this.props.state.showLoginForm && <LoginForm />}
-          {this.props.state.successMessage && (
-            <Heading level="2" id="success-message">
-              {this.props.state.successMessage}
-            </Heading>
-          )}
-          {this.props.state.successMessage && (
-            <Button
-              label="To The News!"
-              onClick={() =>
-                this.props.dispatch({
-                  type: "TO_THE_NEWS",
-                  payload: { successMessage: false }
-                })
-              }
-            />
-          )}
-          {this.props.state.showArticleList && <ArticleList />}
-          {this.props.state.readArticle && <SpecificArticle />}
-          {this.props.state.showPaymentForm && (
-            <Elements>
-              <PaymentForm />
-            </Elements>
-          )}
-        </Main>
-      </Grommet>
-    );
-  }
-}
+const App = props => {
+  const { t } = useTranslation();
+
+  return (
+    <Grommet full theme={grommet}>
+      <Main fill align="center" justify="center">
+        <Heading>Urban Living</Heading> {t("tagline")}
+        {props.state.showLogoutButton && <LogoutButton />}
+        {props.state.showLoginButton && <LoginButton />}
+        {props.state.showLoginForm && <LoginForm />}
+        {props.state.successMessage && (
+          <Heading level="2" id="success-message">
+            {props.state.successMessage}
+          </Heading>
+        )}
+        {props.state.successMessage && (
+          <Button
+            label="To The News!"
+            onClick={() =>
+              props.dispatch({
+                type: "TO_THE_NEWS",
+                payload: { successMessage: false }
+              })
+            }
+          />
+        )}
+        {props.state.showArticleList && <ArticleList />}
+        {props.state.readArticle && <SpecificArticle />}
+        {props.state.showPaymentForm && (
+          <Elements>
+            <PaymentForm />
+          </Elements>
+        )}
+      </Main>
+    </Grommet>
+  );
+};
 
 const mapStateToProps = state => {
   return {

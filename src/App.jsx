@@ -16,7 +16,10 @@ class App extends Component {
     navigator.geolocation.getCurrentPosition(async pos => {
       const currentSession = await axios.post(
         "http://localhost:3000/api/sessions",
-        { location: pos.coords }
+        { location: {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude
+        } }
       );
       this.props.dispatch({
         type: "SET_CURRENT_SESSION",

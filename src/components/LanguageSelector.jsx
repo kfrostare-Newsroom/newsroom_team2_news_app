@@ -4,16 +4,16 @@ import i18n from "../i18n";
 
 const LanguageSelector = () => {
   return (
-    <Accordion alignSelf="end">
+    <Accordion id="dropdown-menu" alignSelf="end">
       <AccordionPanel label="Language">
         <Box pad="medium" background="light-2">
-          <Text onClick={() => i18n.changeLanguage("en")} style={{cursor:"pointer"}}>English</Text>
+          <Text id="english" onClick={() => i18n.changeLanguage("en")} style={{cursor:"pointer"}}>English</Text>
         </Box>
         <Box pad="medium" background="light-1">
-          <Text onClick={() => i18n.changeLanguage("sv")} style={{cursor:"pointer"}}>Svenska</Text>
+          <Text id="swedish" onClick={() => i18n.changeLanguage("sv")} style={{cursor:"pointer"}}>Svenska</Text>
         </Box>
         <Box pad="medium" background="light-2">
-          <Text onClick={() => i18n.changeLanguage("es")} style={{cursor:"pointer"}}>Español</Text>
+          <Text id="spanish" onClick={() => i18n.changeLanguage("es")} style={{cursor:"pointer"}}>Español</Text>
         </Box>
       </AccordionPanel>
     </Accordion>

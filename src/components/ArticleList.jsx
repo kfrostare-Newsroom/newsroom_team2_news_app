@@ -3,6 +3,7 @@ import { Box, Grommet, Button } from "grommet";
 import { grommet } from "grommet/themes";
 import axios from "axios";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 class ArticleList extends Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class ArticleList extends Component {
   }
 
   render() {
+    const { t } = useTranslation();
     let articleDisplay;
     if (this.props.articleList !== []) {
       articleDisplay = this.props.articleList.map(article => {
@@ -48,7 +50,7 @@ class ArticleList extends Component {
                     data-id={article.id}
                     type="submit"
                     primary
-                    label="Read More"
+                    label={t("read-more")}
                     onClick={this.articleFetcher.bind(this)}
                   ></Button>
                 </div>

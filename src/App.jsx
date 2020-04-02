@@ -11,7 +11,8 @@ import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-
+import LanguageSelector from "./components/LanguageSelector";
+import i18n from "./i18n";
 
 const App = props => {
   const { t } = useTranslation();
@@ -36,12 +37,13 @@ const App = props => {
   });
   return (
     <Grommet full theme={grommet}>
-      <Main fill align="center" justify="center">
-        <Heading>Urban Living</Heading> {t("tagline")}
+      <h1 onClick={() => i18n.changeLanguage("es")} style={{cursor:"pointer"}}>Spanish</h1>
+      <Main fill align="center" justify="center"> 
+        <Heading>Urban Living <LanguageSelector /> </Heading> {t("tagline")}
         <Heading margin="small" level="4" id="welcome-message">
           {" "}
           {`${edition} Edition`}{" "}
-        </Heading>
+        </Heading>{" "}
         {props.state.showLogoutButton && <LogoutButton />}
         {props.state.showLoginButton && <LoginButton />}
         {props.state.showLoginForm && <LoginForm />}

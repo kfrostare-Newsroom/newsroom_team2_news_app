@@ -33,7 +33,7 @@ const App = props => {
         payload: { session: { edition: currentSession.data.session.edition } }
       });
     });
-  });
+  },[]);
   return (
     <Grommet full theme={grommet}>
       <Main fill align="center" justify="center">

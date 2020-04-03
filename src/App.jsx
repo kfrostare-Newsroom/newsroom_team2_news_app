@@ -10,8 +10,11 @@ import LoginForm from "./components/LoginForm";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./components/LanguageSelector";
 
 const App = props => {
+  const { t } = useTranslation();
   const edition = useSelector(state => state.session.edition);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,15 +33,17 @@ const App = props => {
         payload: { session: { edition: currentSession.data.session.edition } }
       });
     });
-  });
+  },[]);
   return (
     <Grommet full theme={grommet}>
       <Main fill align="center" justify="center">
+        <LanguageSelector />
         <Heading>Urban Living</Heading>
+        <div id="tagline">{t("tagline")}</div>
         <Heading margin="small" level="4" id="welcome-message">
           {" "}
           {`${edition} Edition`}{" "}
-        </Heading>
+        </Heading>{" "}
         {props.state.showLogoutButton && <LogoutButton />}
         {props.state.showLoginButton && <LoginButton />}
         {props.state.showLoginForm && <LoginForm />}
@@ -69,6 +74,7 @@ const App = props => {
     </Grommet>
   );
 };
+
 const mapStateToProps = state => {
   return {
     state: state

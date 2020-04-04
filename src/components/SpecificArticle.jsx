@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Box, Grommet, Button } from "grommet";
+import { Box, Grommet, Button, Image } from "grommet";
 import { grommet } from "grommet/themes";
 
 class SpecificArticle extends Component {
@@ -44,25 +44,25 @@ class SpecificArticle extends Component {
           </div>
         </>
       ) : (
-        <>
-          <div className="spec-content restricted">
-            <p>{articleContent}</p>
-          </div>
-          <p>
-            This article require a premium membership.{" "}
-            <Button
-              label="Buy Subscription"
-              color="lightgreen"
-              onClick={() =>
-                this.props.dispatch({
-                  type: "PAYMENT_FORM",
-                  payload: { showPaymentForm: true }
-                })
-              }
-            />
-          </p>
-        </>
-      );
+          <>
+            <div className="spec-content restricted">
+              <p>{articleContent}</p>
+            </div>
+            <p>
+              This article require a premium membership.{" "}
+              <Button
+                label="Buy Subscription"
+                color="lightgreen"
+                onClick={() =>
+                  this.props.dispatch({
+                    type: "PAYMENT_FORM",
+                    payload: { showPaymentForm: true }
+                  })
+                }
+              />
+            </p>
+          </>
+        );
 
     return (
       <Grommet full theme={grommet}>
@@ -75,6 +75,9 @@ class SpecificArticle extends Component {
           id={specArticle.id}
         >
           <div>
+            <div className="spec-image">
+              <Image src={specArticle.image}></Image>
+            </div>
             <div className="spec-title">
               <h2>{specArticle.title}</h2>
             </div>

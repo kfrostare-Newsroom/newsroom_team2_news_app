@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Grommet, Button } from "grommet";
+import { Box, Grommet, Button, Image } from "grommet";
 import { grommet } from "grommet/themes";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -9,12 +9,13 @@ class ArticleList extends Component {
     axios.get("/articles").then(response => {
       this.props.dispatch({
         type: "ARTICLES",
-        payload: { articleList: response.data.articles }
+        payload: { articleList: response.data }
       });
+
     });
   }
 
-  async articleFetcher (event) {
+  async articleFetcher(event) {
     let id = event.target.dataset.id
     let response = await axios.get(`/articles/${id}`)
     this.props.dispatch({
@@ -37,10 +38,12 @@ class ArticleList extends Component {
             key={article.id}
           >
             <div id={article.id} className="article-box">
+              <div className="article-box">
+                <Image src={article.image}></Image>
+              </div>
               <div className="feature-article">
                 <div className="article-headline">
                   <h2>{article.title}</h2>
-
                   <div className="article-teaser">
                     <p>{article.teaser}</p>
                   </div>

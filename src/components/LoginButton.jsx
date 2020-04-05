@@ -15,7 +15,7 @@ class LoginButton extends Component {
   };
 
   render() {
-    return <Button margin="small" onClick={this.clickHandler} color="#7C8EA6" label="Login" />;
+    return <Button id="login-button" alignSelf="start" margin="small" onClick={this.clickHandler} color="#7C8EA6" label="Login" />;
   }
 }
 

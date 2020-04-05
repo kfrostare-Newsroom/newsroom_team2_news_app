@@ -70,7 +70,7 @@ class ArticleList extends Component {
     }
     return (
       <Grommet full theme={grommet}>
-        <div class="ui vertically divided grid">
+        <div class="ui stackable vertically divided grid">
           <div class="two column row">{articleDisplay}</div>{" "}
         </div>
       </Grommet>

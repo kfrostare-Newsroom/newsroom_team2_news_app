@@ -1,10 +1,13 @@
 #article-image {
-  width: "auto";
-  height: 250px;
+  width: auto;
+  max-height: 700px;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
 
+#clock {
+  margin-bottom: 10px;
 }
 
 #title {
@@ -12,13 +15,28 @@
   margin-top: 8px;
 }
 
-#tagline {
-  padding-top: 50px;
-}
-
-
 #read-more-button {
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
+
+#created-date {
+  text-align: right;
+  font-weight: bold;
+  font-size: small;
+}
+
+#article-content {
+  width: 800px;
+  padding-left: auto;
+  padding-right: auto;
+  display: block;
+}
+
+#article-class {
+  text-align: right;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+

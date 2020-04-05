@@ -14,33 +14,37 @@ import { useTranslation } from "react-i18next";
 import LanguageSelector from "./components/LanguageSelector";
 import LogoOlive from "./LogoOlive.png";
 
-const App = props => {
+const App = (props) => {
   const { t } = useTranslation();
-  const edition = useSelector(state => state.session.edition);
+  const edition = useSelector((state) => state.session.edition);
   const dispatch = useDispatch();
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async pos => {
+    navigator.geolocation.getCurrentPosition(async (pos) => {
       const currentSession = await axios.post(
         "https://urban-living.herokuapp.com/api/sessions",
         {
           location: {
             latitude: pos.coords.latitude,
-            longitude: pos.coords.longitude
-          }
+            longitude: pos.coords.longitude,
+          },
         }
       );
       dispatch({
         type: "SET_CURRENT_SESSION",
-        payload: { session: { edition: currentSession.data.session.edition } }
+        payload: { session: { edition: currentSession.data.session.edition } },
       });
     });
-  },[]);
+  }, []);
   return (
     <Grommet full theme={grommet}>
-      <Clock type="digital" />
       <Main fill align="center" justify="center">
         <LanguageSelector />
-        <Heading><img src={LogoOlive}/></Heading>
+        <Heading>
+          <img src={LogoOlive} />
+        </Heading>
+        <div id="clock">
+          <Clock type="digital" />
+        </div>
         <div id="tagline">{t("tagline")}</div>
         <Heading margin="small" level="4" id="welcome-message">
           {" "}
@@ -60,7 +64,7 @@ const App = props => {
             onClick={() =>
               props.dispatch({
                 type: "TO_THE_NEWS",
-                payload: { successMessage: false }
+                payload: { successMessage: false },
               })
             }
           />
@@ -77,9 +81,9 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    state: state
+    state: state,
   };
 };
 export default connect(mapStateToProps)(App);

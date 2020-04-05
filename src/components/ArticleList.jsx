@@ -11,7 +11,6 @@ class ArticleList extends Component {
         type: "ARTICLES",
         payload: { articleList: response.data }
       });
-
     });
   }
 

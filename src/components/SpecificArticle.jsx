@@ -44,25 +44,25 @@ class SpecificArticle extends Component {
           </div>
         </>
       ) : (
-          <>
-            <div className="spec-content restricted">
-              <p>{articleContent}</p>
-            </div>
-            <p>
-              This article require a premium membership.{" "}
-              <Button
-                label="Buy Subscription"
-                color="lightgreen"
-                onClick={() =>
-                  this.props.dispatch({
-                    type: "PAYMENT_FORM",
-                    payload: { showPaymentForm: true }
-                  })
-                }
-              />
-            </p>
-          </>
-        );
+        <>
+          <div className="spec-content restricted">
+            <p>{articleContent}</p>
+          </div>
+          <p>
+            This article require a premium membership.{" "}
+            <Button
+              label="Buy Subscription"
+              color="lightgreen"
+              onClick={() =>
+                this.props.dispatch({
+                  type: "PAYMENT_FORM",
+                  payload: { showPaymentForm: true }
+                })
+              }
+            />
+          </p>
+        </>
+      );
 
     return (
       <Grommet full theme={grommet}>
@@ -76,7 +76,7 @@ class SpecificArticle extends Component {
         >
           <div>
             <div className="spec-image">
-              <Image src={specArticle.image} fit="fill" ></Image>
+              <Image src={specArticle.image} fit="fill"></Image>
             </div>
             <div className="spec-title">
               <h2>{specArticle.title}</h2>

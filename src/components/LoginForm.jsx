@@ -19,7 +19,7 @@ class LoginForm extends Component {
           currentUser: response.data.role,
           firstPage: true,
           showArticleList: true,
-          showLogoutButton: true 
+          showLogoutButton: true
         }
       });
     } catch (error) {
@@ -42,7 +42,12 @@ class LoginForm extends Component {
               type="password"
               placeholder="password"
             />
-            <Button color="#7C8EA6" margin="small" type="submit" label="Sign in" />
+            <Button
+              color="#7C8EA6"
+              margin="small"
+              type="submit"
+              label="Sign in"
+            />
           </Form>
         </Box>
       );

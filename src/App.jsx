@@ -20,7 +20,7 @@ const App = props => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async pos => {
       const currentSession = await axios.post(
-        "http://localhost:3000/api/sessions",
+        "https://urban-living.herokuapp.com/api/sessions",
         {
           location: {
             latitude: pos.coords.latitude,

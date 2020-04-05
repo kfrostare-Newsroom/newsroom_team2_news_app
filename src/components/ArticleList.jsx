@@ -6,10 +6,10 @@ import { connect } from "react-redux";
 
 class ArticleList extends Component {
   componentDidMount() {
-    axios.get("/articles").then(response => {
+    axios.get("/articles").then((response) => {
       this.props.dispatch({
         type: "ARTICLES",
-        payload: { articleList: response.data }
+        payload: { articleList: response.data },
       });
     });
   }
@@ -26,53 +26,62 @@ class ArticleList extends Component {
   render() {
     let articleDisplay;
     if (this.props.articleList !== []) {
-      articleDisplay = this.props.articleList.map(article => {
+      articleDisplay = this.props.articleList.map((article) => {
         return (
-          <Box
-            direction="row"
-            border={{ color: "#544C2F", size: "large" }}
-            pad="medium"
-            margin="medium"
-            className="article"
-            key={article.id}
-            basis="1/2"
-          >
-            <div id={article.id} className="article-box">
-              <div className="article-box">
-                <Image id="article-image" src={article.image}></Image>
-              </div>
-              <div className="feature-article">
-                <div className="article-headline">
-                  <h2>{article.title}</h2>
-                  <div className="article-teaser">
-                    <p>{article.teaser}</p>
-                  </div>
-                  <Button
-                    color="#7C8EA6"
-                    data-id={article.id}
-                    type="submit"
-                    primary
-                    label="Read More"
-                    onClick={this.articleFetcher.bind(this)}
-                  ></Button>
+          <div class="column">
+            <Box
+              direction="row"
+              border={{ color: "#544C2F", size: "large" }}
+              pad="medium"
+              margin="medium"
+              className="article"
+              key={article.id}
+              basis="1/2"
+            >
+              <div id={article.id} className="article-box">
+                <div className="article-box">
+                  <Image id="article-image" src={article.image}></Image>
                 </div>
+                <div className="feature-article">
+                  <div className="article-headline">
+                    <h2 id="title">{article.title}</h2>
+                    <div className="article-teaser">
+                      <p>{article.teaser}</p>
+                    </div>
+                    <div className="button"></div>
+                  </div>
+                </div>
+                <Button
+                alignSelf="center"
+                id="read-more-button"
+                margin="small"
+                color="#7C8EA6"
+                data-id={article.id}
+                type="submit"
+                primary
+                label="Read More"
+                onClick={this.articleFetcher.bind(this)}
+              ></Button>
+
               </div>
-            </div>
-          </Box>
+            </Box>
+          </div>
         );
       });
     }
     return (
       <Grommet full theme={grommet}>
-        {articleDisplay}
+        <div class="ui vertically divided grid">
+          <div class="two column row">{articleDisplay}</div>
+        </div>
       </Grommet>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    articleList: state.articleList
+    articleList: state.articleList,
   };
 };
 

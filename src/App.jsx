@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, connect, useSelector } from "react-redux";
 import ArticleList from "./components/ArticleList";
-import { Grommet, Main, Heading, Button } from "grommet";
+import { Grommet, Main, Heading, Button, Clock } from "grommet";
 import { grommet } from "grommet/themes";
 import SpecificArticle from "./components/SpecificArticle";
 import PaymentForm from "./components/PaymentForm";
@@ -37,6 +37,7 @@ const App = props => {
   },[]);
   return (
     <Grommet full theme={grommet}>
+      <Clock type="digital" />
       <Main fill align="center" justify="center">
         <LanguageSelector />
         <Heading><img src={LogoOlive}/></Heading>

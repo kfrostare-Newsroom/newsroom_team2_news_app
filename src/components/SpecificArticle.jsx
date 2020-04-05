@@ -68,7 +68,7 @@ class SpecificArticle extends Component {
       <Grommet full theme={grommet}>
         <Box
           direction="row"
-          border={{ color: "brand", size: "small" }}
+          border={{ color: "#544C2F", size: "small" }}
           pad="medium"
           margin="medium"
           className="article"
@@ -76,7 +76,7 @@ class SpecificArticle extends Component {
         >
           <div>
             <div className="spec-image">
-              <Image src={specArticle.image}></Image>
+              <Image src={specArticle.image} fit="fill" ></Image>
             </div>
             <div className="spec-title">
               <h2>{specArticle.title}</h2>
@@ -86,6 +86,7 @@ class SpecificArticle extends Component {
         </Box>
         <Box align="center">
           <Button
+            color="#7C8EA6"
             type="submit"
             label="Back"
             onClick={() => this.props.dispatch({ type: "HIDE_ARTICLE" })}

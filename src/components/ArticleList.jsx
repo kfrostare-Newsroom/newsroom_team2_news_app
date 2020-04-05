@@ -30,15 +30,16 @@ class ArticleList extends Component {
         return (
           <Box
             direction="row"
-            border={{ color: "brand", size: "large" }}
+            border={{ color: "#544C2F", size: "large" }}
             pad="medium"
             margin="medium"
             className="article"
             key={article.id}
+            basis="1/2"
           >
             <div id={article.id} className="article-box">
               <div className="article-box">
-                <Image src={article.image}></Image>
+                <Image id="article-image" src={article.image}></Image>
               </div>
               <div className="feature-article">
                 <div className="article-headline">
@@ -47,6 +48,7 @@ class ArticleList extends Component {
                     <p>{article.teaser}</p>
                   </div>
                   <Button
+                    color="#7C8EA6"
                     data-id={article.id}
                     type="submit"
                     primary

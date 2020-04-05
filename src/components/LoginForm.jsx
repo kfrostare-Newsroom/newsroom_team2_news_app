@@ -42,7 +42,7 @@ class LoginForm extends Component {
               type="password"
               placeholder="password"
             />
-            <Button margin="small" type="submit" label="Sign in" />
+            <Button color="#7C8EA6" margin="small" type="submit" label="Sign in" />
           </Form>
         </Box>
       );

@@ -12,6 +12,7 @@ import LogoutButton from "./components/LogoutButton";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./components/LanguageSelector";
+import Logo from "./Logo.png";
 
 const App = props => {
   const { t } = useTranslation();
@@ -38,7 +39,7 @@ const App = props => {
     <Grommet full theme={grommet}>
       <Main fill align="center" justify="center">
         <LanguageSelector />
-        <Heading>Urban Living</Heading>
+        <Heading><img src={Logo}/></Heading>
         <div id="tagline">{t("tagline")}</div>
         <Heading margin="small" level="4" id="welcome-message">
           {" "}

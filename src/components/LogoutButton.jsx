@@ -10,7 +10,10 @@ class LogoutButton extends Component {
       type: "LOGOUT",
       payload: {
         authenticated: false,
-        userEmail: null
+        userEmail: null,
+        showLoginForm: false,
+        showLoginButton: true,
+        showLogoutButton: false
       }
     });
   };

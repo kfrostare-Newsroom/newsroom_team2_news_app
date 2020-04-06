@@ -17,6 +17,8 @@ class LoginButton extends Component {
   render() {
     return (
       <Button
+        id="login-button"
+        alignSelf="start"
         margin="small"
         onClick={this.clickHandler}
         color="#7C8EA6"

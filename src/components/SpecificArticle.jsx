@@ -37,10 +37,10 @@ class SpecificArticle extends Component {
       specArticle.article_class === "free" || this.props.premiumUser ? (
         <>
           <div className="spec-content">
-            <p>{articleContent}</p>
+            <p id="article-content">{articleContent}</p>
           </div>
           <div className="created-date">
-            <p>Submitted on {specArticle.new_created_at}</p>
+            <p id="created-date">Submitted on {specArticle.new_created_at}</p>
           </div>
         </>
       ) : (
@@ -68,7 +68,7 @@ class SpecificArticle extends Component {
       <Grommet full theme={grommet}>
         <Box
           direction="row"
-          border={{ color: "#544C2F", size: "small" }}
+          border={{ color: "#544C2F", size: "large" }}
           pad="medium"
           margin="medium"
           className="article"
@@ -79,13 +79,14 @@ class SpecificArticle extends Component {
               <Image src={specArticle.image} fit="fill"></Image>
             </div>
             <div className="spec-title">
-              <h2>{specArticle.title}</h2>
+              <h2 id="title">{specArticle.title}</h2>
             </div>
             {showContent}
           </div>
         </Box>
         <Box align="center">
           <Button
+            margin="small"
             color="#7C8EA6"
             type="submit"
             label="Back"

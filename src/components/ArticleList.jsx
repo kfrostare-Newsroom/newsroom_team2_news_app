@@ -28,7 +28,7 @@ class ArticleList extends Component {
     if (this.props.articleList !== []) {
       articleDisplay = this.props.articleList.map((article) => {
         return (
-          <div class="column">
+          <div class="two column row">
             <Box
               direction="row"
               border={{ color: "#544C2F", size: "large" }}
@@ -48,21 +48,20 @@ class ArticleList extends Component {
                     <div className="article-teaser">
                       <p>{article.teaser}</p>
                     </div>
-                    <div className="button"></div>
                   </div>
                 </div>
                 <Button
-                alignSelf="center"
-                id="read-more-button"
-                margin="small"
-                color="#7C8EA6"
-                data-id={article.id}
-                type="submit"
-                primary
-                label="Read More"
-                onClick={this.articleFetcher.bind(this)}
-              ></Button>
-
+                  alignSelf="center"
+                  id="read-more-button"
+                  margin="small"
+                  color="#7C8EA6"
+                  data-id={article.id}
+                  type="submit"
+                  primary
+                  label="Read More"
+                  onClick={this.articleFetcher.bind(this)}
+                ></Button>
+                <p id="article-class">{article.article_class}</p>
               </div>
             </Box>
           </div>
@@ -71,8 +70,8 @@ class ArticleList extends Component {
     }
     return (
       <Grommet full theme={grommet}>
-        <div class="ui vertically divided grid">
-          <div class="two column row">{articleDisplay}</div>
+        <div class="ui stackable vertically divided grid">
+          <div class="two column row">{articleDisplay}</div>{" "}
         </div>
       </Grommet>
     );

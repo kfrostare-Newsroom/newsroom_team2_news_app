@@ -6,10 +6,10 @@ import { connect } from "react-redux";
 
 class ArticleList extends Component {
   componentDidMount() {
-    axios.get("/articles").then((response) => {
+    axios.get("/articles").then(response => {
       this.props.dispatch({
         type: "ARTICLES",
-        payload: { articleList: response.data },
+        payload: { articleList: response.data }
       });
     });
   }
@@ -26,7 +26,7 @@ class ArticleList extends Component {
   render() {
     let articleDisplay;
     if (this.props.articleList !== []) {
-      articleDisplay = this.props.articleList.map((article) => {
+      articleDisplay = this.props.articleList.map(article => {
         return (
           <div class="two column row">
             <Box
@@ -78,9 +78,9 @@ class ArticleList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    articleList: state.articleList,
+    articleList: state.articleList
   };
 };
 

@@ -19,7 +19,15 @@ class LogoutButton extends Component {
   };
 
   render() {
-    return <Button id="logout-button" alignSelf="start" color="#7C8EA6" onClick={this.onLogout} label="Logout" />;
+    return (
+      <Button
+        id="logout-button"
+        alignSelf="start"
+        color="#7C8EA6"
+        onClick={this.onLogout}
+        label="Logout"
+      />
+    );
   }
 }
 

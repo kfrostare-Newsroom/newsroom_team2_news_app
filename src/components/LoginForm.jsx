@@ -50,6 +50,7 @@ class LoginForm extends Component {
             />
           </Form>
           <Button
+            color="#544C2F"
             label="Back"
             onClick={() =>
               this.props.dispatch({

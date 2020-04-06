@@ -43,6 +43,7 @@ const PaymentForm = props => {
       <label>CVC:</label>
       <CardCVCElement />
       <Button
+        color="#7C8EA6"
         margin="xsmall"
         label="Submit Payment"
         onClick={event => {

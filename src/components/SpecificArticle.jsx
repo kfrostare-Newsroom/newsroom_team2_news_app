@@ -51,8 +51,8 @@ class SpecificArticle extends Component {
           <p>
             This article require a premium membership.{" "}
             <Button
-              label="Buy Subscription"
-              color="lightgreen"
+              color="#544C2F"
+              label="Buy Yearly Subscription, 699 sek"
               onClick={() =>
                 this.props.dispatch({
                   type: "PAYMENT_FORM",
@@ -68,7 +68,7 @@ class SpecificArticle extends Component {
       <Grommet full theme={grommet}>
         <Box
           direction="row"
-          border={{ color: "#544C2F", size: "large" }}
+          border={{ color: "#544C2F", size: "xsmall" }}
           pad="medium"
           margin="medium"
           className="article"

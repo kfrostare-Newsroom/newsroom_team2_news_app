@@ -31,7 +31,7 @@ class ArticleList extends Component {
           <div class="two column row">
             <Box
               direction="row"
-              border={{ color: "#544C2F", size: "large" }}
+              border={{ color: "#544C2F", size: "small" }}
               pad="medium"
               margin="medium"
               className="article"

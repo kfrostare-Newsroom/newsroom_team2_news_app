@@ -6,7 +6,7 @@ const initialState = {
   showLoginButton: true,
   showLogoutButton: false,
   authenticated: false,
-  session: {edition: "Global"} 
+  session: { edition: "Global" }
 };
 
 export default initialState;

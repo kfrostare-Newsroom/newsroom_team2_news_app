@@ -17,7 +17,7 @@ window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Suspense fallback={(<div>Loading...</div>)}>
+    <Suspense fallback={<div>Loading...</div>}>
       <StripeProvider apiKey={key}>
         <App />
       </StripeProvider>

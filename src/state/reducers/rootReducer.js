@@ -5,68 +5,68 @@ const rootReducer = (state = initialState, action) => {
     case "ARTICLES":
       return {
         ...state,
-        articleList: action.payload.articleList,
+        articleList: action.payload.articleList
       };
     case "SHOW_ARTICLE":
       return {
         ...state,
         readArticle: action.payload.readArticle,
-        showArticleList: false,
+        showArticleList: false
       };
     case "HIDE_ARTICLE":
       return {
         ...state,
         readArticle: undefined,
         showArticleList: true,
-        ...action.payload,
+        ...action.payload
       };
     case "AUTHENTICATE":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "PAYMENT_FORM":
       return {
         ...state,
         ...action.payload,
-        readArticle: undefined,
+        readArticle: undefined
       };
     case "SUCCESS_MESSAGE":
       return {
         ...state,
         ...action.payload,
-        showPaymentForm: false,
+        showPaymentForm: false
       };
     case "TO_THE_NEWS":
       return {
         ...state,
         ...action.payload,
-        showArticleList: true,
+        showArticleList: true
       };
     case "SHOW_LOGIN_FORM":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "LOGIN":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "LOGOUT":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "PREMIUM":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "SET_CURRENT_SESSION":
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
     case "HIDE_LOGIN_FORM":
       return {
@@ -75,7 +75,6 @@ const rootReducer = (state = initialState, action) => {
         showLoginForm: false,
         showLoginButton: true
       };
-
     default:
       return state;
   }

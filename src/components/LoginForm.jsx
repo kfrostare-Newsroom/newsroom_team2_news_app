@@ -4,7 +4,7 @@ import { Form, TextInput, Button, Box } from "grommet";
 import { connect } from "react-redux";
 
 class LoginForm extends Component {
-  onLogin = async (event) => {
+  onLogin = async event => {
     try {
       event.preventDefault();
       let response = await auth.signIn(
@@ -19,8 +19,8 @@ class LoginForm extends Component {
           currentUser: response.data.role,
           firstPage: true,
           showArticleList: true,
-          showLogoutButton: true,
-        },
+          showLogoutButton: true
+        }
       });
     } catch (error) {
       console.log(error);
@@ -42,14 +42,20 @@ class LoginForm extends Component {
               type="password"
               placeholder="password"
             />
-            <Button margin="small" type="submit" label="Sign in" />
+            <Button
+              color="#7C8EA6"
+              margin="small"
+              type="submit"
+              label="Sign in"
+            />
           </Form>
           <Button
+            color="#544C2F"
             label="Back"
             onClick={() =>
               this.props.dispatch({
                 type: "HIDE_LOGIN_FORM",
-                payload: { showLoginform: undefined, showArticleList: true },
+                payload: { showLoginform: undefined, showArticleList: true }
               })
             }
           ></Button>
@@ -60,10 +66,10 @@ class LoginForm extends Component {
     return <>{login}</>;
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     authenticated: state.authenticated,
-    userEmail: state.userEmail,
+    userEmail: state.userEmail
   };
 };
 

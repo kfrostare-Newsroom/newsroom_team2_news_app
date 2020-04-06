@@ -13,13 +13,15 @@ const PaymentForm = props => {
   const dispatch = useDispatch();
   const submitPayment = async event => {
     event.preventDefault();
-    let headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'));
+    let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     let stripeResponse = await props.stripe.createToken();
     let token = stripeResponse.token.id;
-    let paymentState = await axios.post("/subscriptions", {
-      stripeToken: token
-    },
-    {headers: headers}
+    let paymentState = await axios.post(
+      "/subscriptions",
+      {
+        stripeToken: token
+      },
+      { headers: headers }
     );
 
     if (paymentState.data.status === "paid") {
@@ -41,6 +43,7 @@ const PaymentForm = props => {
       <label>CVC:</label>
       <CardCVCElement />
       <Button
+        color="#544C2F"
         margin="xsmall"
         label="Submit Payment"
         onClick={event => {

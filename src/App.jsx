@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, connect, useSelector } from "react-redux";
 import ArticleList from "./components/ArticleList";
-import { Grommet, Main, Heading, Button } from "grommet";
+import { Grommet, Main, Heading, Button, Clock } from "grommet";
 import { grommet } from "grommet/themes";
 import SpecificArticle from "./components/SpecificArticle";
 import PaymentForm from "./components/PaymentForm";
@@ -12,6 +12,7 @@ import LogoutButton from "./components/LogoutButton";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./components/LanguageSelector";
+import LogoOlive from "./LogoOlive.png";
 
 const App = props => {
   const { t } = useTranslation();
@@ -33,12 +34,17 @@ const App = props => {
         payload: { session: { edition: currentSession.data.session.edition } }
       });
     });
-  },[]);
+  }, []);
   return (
     <Grommet full theme={grommet}>
       <Main fill align="center" justify="center">
         <LanguageSelector />
-        <Heading>Urban Living</Heading>
+        <Heading>
+          <img src={LogoOlive} />
+        </Heading>
+        <div id="clock">
+          <Clock type="digital" />
+        </div>
         <div id="tagline">{t("tagline")}</div>
         <Heading margin="small" level="4" id="welcome-message">
           {" "}

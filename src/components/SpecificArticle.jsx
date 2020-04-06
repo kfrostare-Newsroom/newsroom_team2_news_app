@@ -37,38 +37,38 @@ class SpecificArticle extends Component {
       specArticle.article_class === "free" || this.props.premiumUser ? (
         <>
           <div className="spec-content">
-            <p>{articleContent}</p>
+            <p id="article-content">{articleContent}</p>
           </div>
           <div className="created-date">
-            <p>Submitted on {specArticle.new_created_at}</p>
+            <p id="created-date">Submitted on {specArticle.new_created_at}</p>
           </div>
         </>
       ) : (
-          <>
-            <div className="spec-content restricted">
-              <p>{articleContent}</p>
-            </div>
-            <p>
-              This article require a premium membership.{" "}
-              <Button
-                label="Buy Subscription"
-                color="lightgreen"
-                onClick={() =>
-                  this.props.dispatch({
-                    type: "PAYMENT_FORM",
-                    payload: { showPaymentForm: true }
-                  })
-                }
-              />
-            </p>
-          </>
-        );
+        <>
+          <div className="spec-content restricted">
+            <p>{articleContent}</p>
+          </div>
+          <p>
+            This article require a premium membership.{" "}
+            <Button
+              color="#544C2F"
+              label="Buy Yearly Subscription, 699 sek"
+              onClick={() =>
+                this.props.dispatch({
+                  type: "PAYMENT_FORM",
+                  payload: { showPaymentForm: true }
+                })
+              }
+            />
+          </p>
+        </>
+      );
 
     return (
       <Grommet full theme={grommet}>
         <Box
           direction="row"
-          border={{ color: "brand", size: "small" }}
+          border={{ color: "#544C2F", size: "xsmall" }}
           pad="medium"
           margin="medium"
           className="article"
@@ -76,16 +76,18 @@ class SpecificArticle extends Component {
         >
           <div>
             <div className="spec-image">
-              <Image src={specArticle.image}></Image>
+              <Image src={specArticle.image} fit="fill"></Image>
             </div>
             <div className="spec-title">
-              <h2>{specArticle.title}</h2>
+              <h2 id="title">{specArticle.title}</h2>
             </div>
             {showContent}
           </div>
         </Box>
         <Box align="center">
           <Button
+            margin="small"
+            color="#7C8EA6"
             type="submit"
             label="Back"
             onClick={() => this.props.dispatch({ type: "HIDE_ARTICLE" })}

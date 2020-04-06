@@ -75,6 +75,11 @@ const rootReducer = (state = initialState, action) => {
         showLoginForm: false,
         showLoginButton: true
       };
+    case "HIDE_PAYMENT_FORM":
+      return {
+        ...state,
+        ...action.payload
+      }
     default:
       return state;
   }
